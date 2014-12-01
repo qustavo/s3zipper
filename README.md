@@ -1,7 +1,8 @@
 s3zipper
 ========
 
-Golang tool for getting zipped list of files stored in Amazon S3 
+Golang tool for getting zipped list of files stored in Amazon S3
+s3zipper tries to minimize memory footprint by streaming compressed data as is being downloaded, instead of a) getting, files b) compress them, and c) send compressed data.
 
 Installation
 --
