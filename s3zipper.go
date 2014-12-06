@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"strconv"
 	"strings"
 	"time"
 
@@ -74,12 +75,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	var port int
 	bucket := flag.String("bucket", "/", "S3 Bucket")
 	region := flag.String("region", "us-east-1", "S3 Region")
+	flag.IntVar(&port, "port", 8000, "port to use for s3zipper")
 	flag.Parse()
 
 	initAwsBucket(*bucket, *region)
 
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8000", nil)
+	http.ListenAndServe(":"+strconv.Itoa(port), nil)
 }
