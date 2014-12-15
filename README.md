@@ -13,9 +13,9 @@ Usage:
 --
 
 ```bash
-AWS_ACCESS_KEY="AccessKey" AWS_SECRET_KEY="SecretKey" ./s3zip -bucket yourBucket
+AWS_ACCESS_KEY="AccessKey" AWS_SECRET_KEY="SecretKey" ./s3zipper -bucket yourBucket -port=8000
 ```
-Server will be listening on port 8000 (change the code for a different port)
+The default port will be 8000 if you don't specify another one.
 
 Then you should specify a list of files you want to download separated by ",":
 ```bash
@@ -25,4 +25,4 @@ wget -O file http://localhost:8000\?files=foo.pdf,bar.pdf
 Notes:
 --
 * This is a proof of concept, don't expect s3zipper to be an elaborated tool
-* Unexising files will be ignored
+* Unexisting files will be ignored
